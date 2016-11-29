@@ -337,7 +337,7 @@ function sigmoid(x) { // to keep number range within 0 to 1
 
 function detectGesture(event) {
     var gesture = "";
-    var outputValue = 0;
+    var confidence = 0;
     var x = zNN;
     var y = yNN;
     var z = xNN;
@@ -349,17 +349,17 @@ function detectGesture(event) {
             for(k = 0; k < z; k++) {
                 weight = wts[i][j][k];
                 input = Math.abs(testInputMatrix[i][j][k]);
-                outputValue += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
             }
         }
     }
     // get final, rounded percent output value
-    outputValue = round(outputValue,2); // round to 2 decimal places
-    outputValue = outputValue*100; // get percentage
+    confidence = round(confidence,2); // round to 2 decimal places
+    confidence = confidence*100; // get percentage
     // debug output
-    document.getElementById("confidence").innerHTML = "confidence="+outputValue+"%";
-    document.getElementById("meter").value = outputValue/100;
-    if (outputValue > confidenceThreshold) {
+    document.getElementById("confidence").innerHTML = "confidence="+confidence+"%";
+    document.getElementById("meter").value = confidence/100;
+    if (confidence > confidenceThreshold) {
         gesture = "DETECTED!";
         document.getElementById("pad").style.backgroundColor = "red";
     } else {

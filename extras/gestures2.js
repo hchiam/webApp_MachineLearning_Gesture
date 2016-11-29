@@ -391,8 +391,8 @@ function sigmoid(x) { // to keep number range within 0 to 1
 
 function detectGesture(event) {
     var gesture = "";
-    var outputValue = 0;
-    var outputValue2 = 0;
+    var confidence = 0;
+    var confidence2 = 0;
     var x = zNN;
     var y = yNN;
     var z = xNN;
@@ -405,30 +405,30 @@ function detectGesture(event) {
                 weight = wts[i][j][k];
                 weight2 = wts2[i][j][k];
                 input = Math.abs(testInputMatrix[i][j][k]);
-                outputValue += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                outputValue2 += weight2 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence2 += weight2 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
             }
         }
     }
     // get final, rounded percent output value
-    outputValue = round(outputValue,2); // round to 2 decimal places
-    outputValue = outputValue*100; // get percentage
-    outputValue2 = round(outputValue2,2); // round to 2 decimal places
-    outputValue2 = outputValue2*100; // get percentage
+    confidence = round(confidence,2); // round to 2 decimal places
+    confidence = confidence*100; // get percentage
+    confidence2 = round(confidence2,2); // round to 2 decimal places
+    confidence2 = confidence2*100; // get percentage
     // debug output
-    document.getElementById("confidence").innerHTML = "confidence2="+outputValue+"%";
-    document.getElementById("meter").value = outputValue/100;
-    document.getElementById("confidence2").innerHTML = "confidence2="+outputValue2+"%";
-    document.getElementById("meter2").value = outputValue2/100;
+    document.getElementById("confidence").innerHTML = "confidence2="+confidence+"%";
+    document.getElementById("meter").value = confidence/100;
+    document.getElementById("confidence2").innerHTML = "confidence2="+confidence2+"%";
+    document.getElementById("meter2").value = confidence2/100;
     // set gesture and pad colour
     gesture = "?";
-    if (outputValue > confidenceThreshold) {
+    if (confidence > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES.";
         document.getElementById("pad").style.backgroundColor = "yellow";
     } else {
         document.getElementById("pad").style.backgroundColor = "blue";
     }
-    if (outputValue2 > confidenceThreshold) {
+    if (confidence2 > confidenceThreshold) {
         gesture = "UP/DOWN.";
         document.getElementById("pad2").style.backgroundColor = "yellow";
     } else {
