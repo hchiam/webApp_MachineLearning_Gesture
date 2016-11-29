@@ -9,7 +9,7 @@ Main files:
 * `gestures.js`:  the "brains" of the web page. Tries to detect a mouse gesture when the mouse runs over the "pad".
 * `gestures.css`:  the "looks/styling" of the presentation of the web page.
 
-Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
+Uses a super simple version of a TDNN (time delay neural network) [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
 
 Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa). 
 (Just adjust the code panels to show the simulated window.)
