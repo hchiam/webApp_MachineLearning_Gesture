@@ -446,19 +446,19 @@ function playerAction(gesture) {
 }
 
 function specialAction_UpDown() {
-    moveUp(player, 5);
-    //player.style.color = "red";
+    //moveUp(player, 5);
+    player.style.color = "red";
 }
 function specialAction_LeftRight() {
-    moveDown(player, 5);
-    //player.style.color = "blue";
+    //moveDown(player, 5);
+    player.style.color = "blue";
 }
 function specialAction_ClockWise() {
-    setTimeout( waitAndUp, 0 );
-    setTimeout( waitAndRight, 100 );
-    setTimeout( waitAndDown, 200 );
-    setTimeout( waitAndLeft, 300 );
-    //player.style.color = "yellow";
+    //setTimeout( waitAndUp, 0 );
+    //setTimeout( waitAndRight, 100 );
+    //setTimeout( waitAndDown, 200 );
+    //setTimeout( waitAndLeft, 300 );
+    player.style.color = "yellow";
 }
 
 function moveRight(player, speed) {
