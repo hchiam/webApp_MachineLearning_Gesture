@@ -2,48 +2,48 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="gestures.css">
+        <style>
+            body {
+                background-color: grey;
+            }
+            p {
+                position: relative; /*this enables position specification with player controls, etc.*/
+                font-family: Arial;
+            }
+            .signal {
+                width: 60px;
+                height: 60px;
+                border-radius: 5px;
+                background-color: blue;
+                text-align: center; /*to center the image*/
+                opacity: 0.5;
+                filter: alpha(opacity=50); /* For IE8 and earlier */
+            }
+            .img {
+                width: 60px;
+                height: 60px;
+            }
+            .rotate90 {
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+        </style>
     </head>
     <body onmouseover="mouseMoving(event);"> <!-- onmouseout="clearDetections();"-->
-        <div class="container-fluid well pad">
-            <style>
-                p {
-                    position: absolute; /*this enables position specification with player controls, etc.*/
-                    font-family: Arial;
-                }
-                .signal {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 5px;
-                    background-color: blue;
-                    text-align: center; /*to center the image*/
-                    opacity: 0.5;
-                    filter: alpha(opacity=50); /* For IE8 and earlier */
-                }
-                .img {
-                    width: 60px;
-                    height: 60px;
-                }
-                .rotate90 {
-                    -webkit-transform: rotate(90deg);
-                    -moz-transform: rotate(90deg);
-                    -o-transform: rotate(90deg);
-                    -ms-transform: rotate(90deg);
-                    transform: rotate(90deg);
-                }
-            </style>
-            <p id="gesture"></p>
-            <br/>
-            <p id="signal_updown" class="signal"><img id="img_updown" class="img" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter_updown" value="0"></meter>
-            <br/><br/><br/><br/><br/>
-            <p id="signal_leftright" class="signal"><img id="img_leftright" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter_leftright" value="0"></meter>
-            <br/><br/><br/><br/><br/>
-            <p id="signal_clockwise" class="signal"><img id="img_clockwise" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
-            <meter id="meter_clockwise" value="0"></meter>
-            <br/>
-            <p id="player">player</p>
-        </div>
+        <p id="player">player</p>
+        
+        <p id="signal_updown" class="signal"><img id="img_updown" class="img" src="updown.png" style="width:50px;"></img></p>
+        <meter id="meter_updown" value="0"></meter>
+        
+        <p id="signal_leftright" class="signal"><img id="img_leftright" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
+        <meter id="meter_leftright" value="0"></meter>
+        
+        <p id="signal_clockwise" class="signal"><img id="img_clockwise" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
+        <meter id="meter_clockwise" value="0"></meter>
+        
         <script src="game.js"></script>
     </body>
 </html>
