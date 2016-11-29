@@ -11,17 +11,17 @@
                     font-family: Arial;
                 }
                 .signal {
-                    width: 110px;
-                    height: 105px;
-                    border-radius: 20px;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 5px;
                     background-color: blue;
                     text-align: center; /*to center the image*/
                     opacity: 0.5;
                     filter: alpha(opacity=50); /* For IE8 and earlier */
                 }
                 .img {
-                    width: 100px;
-                    height: 100px;
+                    width: 60px;
+                    height: 60px;
                 }
                 .rotate90 {
                     -webkit-transform: rotate(90deg);
@@ -32,27 +32,16 @@
                 }
             </style>
             <p id="gesture"></p>
-            <br/><br/>
-            <p id="signal" class="signal"><img id="img" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
-            <meter id="meter" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal2" class="signal"><img id="img2" class="img" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter2" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal3" class="signal"><img id="img3" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter3" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal4" class="signal"><img id="img4" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter4" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal5" class="signal"><img id="img5" class="img" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter5" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal6" class="signal"><img id="img6" class="img" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter6" value="0"></meter>
-            <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal7" class="signal"><img id="img7" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
-            <meter id="meter7" value="0"></meter>
+            <br/>
+            <p id="signal_updown" class="signal"><img id="img_updown" class="img" src="updown.png" style="width:50px;"></img></p>
+            <meter id="meter_updown" value="0"></meter>
+            <br/><br/><br/><br/><br/>
+            <p id="signal_leftright" class="signal"><img id="img_leftright" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
+            <meter id="meter_leftright" value="0"></meter>
+            <br/><br/><br/><br/><br/>
+            <p id="signal_clockwise" class="signal"><img id="img_clockwise" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
+            <meter id="meter_clockwise" value="0"></meter>
+            <br/>
             <p id="player">player</p>
         </div>
         <script src="game.js"></script>

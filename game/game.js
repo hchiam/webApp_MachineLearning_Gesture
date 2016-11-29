@@ -13,41 +13,30 @@ var neuralNet = create3DMatrix(snapshots,rows,columns);
 var xNN = columns;
 var yNN = rows;
 var zNN = snapshots;
-var wts;
+var wts_clockwise;
 //var wts = create3DMatrix(snapshots,rows,columns); // so guarantee same size
-var wts2_updown;
-var wts3_leftright;
-var wts4_right;
-var wts5_up;
-var wts6_down;
-var wts7_left;
+var wts_updown;
+var wts_leftright;
 loadPretrainedWts();
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
 var w = window.innerWidth;
 var h = window.innerHeight;
 
-// set "access points" to HTML GUI elements:
-var meter = document.getElementById("meter");
-var meter2 = document.getElementById("meter2");
-var meter3 = document.getElementById("meter3");
-var meter4 = document.getElementById("meter4");
-var meter5 = document.getElementById("meter5");
-var meter6 = document.getElementById("meter6");
-var signal = document.getElementById("signal");
-var signal2 = document.getElementById("signal2");
-var signal3 = document.getElementById("signal3");
-var signal4 = document.getElementById("signal4");
-var signal5 = document.getElementById("signal5");
-var signal6 = document.getElementById("signal6");
-var gesture = document.getElementById("gesture");
+// set "access points" to HTML GUI elements:  CW = Clockwise ; UD = Up/Down ; LR = Left/Right
+var meter_clockwise = document.getElementById("meter_clockwise");
+var meter_updown = document.getElementById("meter_updown");
+var meter_leftright = document.getElementById("meter_leftright");
+var signal_clockwise = document.getElementById("signal_clockwise");
+var signal_updown = document.getElementById("signal_updown");
+var signal_leftright = document.getElementById("signal_leftright");
 var player = document.getElementById("player");
 player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
 
 function loadPretrainedWts() {
     //var matrix = [
-    wts = [
+    wts_clockwise = [
         [[0.86,0.86,0],[0.86,0.91,0.86],[0,0.86,0]],
         [[0.91,0.86,0],[0,0.86,0],[0.86,0,0.86]],
         [[0.91,0.86,0],[0,0.86,0],[0.86,0.86,0.86]],
@@ -99,7 +88,7 @@ function loadPretrainedWts() {
         [[0.86,0.86,0.86],[0.86,0.86,0],[0.86,0.91,0.86]],
         [[0.86,0.86,0.86],[0.86,0.86,0.86],[0,0.91,0.86]]
     ];
-    wts2_updown = [
+    wts_updown = [
         [[0,0,0],[0.86,0.91,0.86],[0,0,0]],
         [[0,0,0],[0.86,0.91,0.86],[0,0.86,0]],
         [[0,0,0],[0.86,0.86,0.91],[0,0,0.86]],
@@ -151,7 +140,7 @@ function loadPretrainedWts() {
         [[0,0,0],[0.91,0.86,0.86],[0,0,0]],
         [[0,0,0],[0.91,0,0.86],[0,0,0.86]]
     ];
-    wts3_leftright=[
+    wts_leftright=[
         [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
         [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
         [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
@@ -203,214 +192,6 @@ function loadPretrainedWts() {
         [[0,0.91,0],[0,0.86,0],[0,0.86,0.86]],
         [[0,0.91,0],[0,0.86,0],[0,0.86,0]]
     ];
-    wts4_right = [
-        [[0,0,0],[0,0.86,0],[0.86,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.86,0.91]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.91,0],[0,0.86,0]],
-        [[0,0,0],[0,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0],[0,0.86,0]],
-        [[0,0,0],[0,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0,0.86,0],[0.86,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]],
-        [[0,0,0],[0,0.86,0],[0,0.86,0.91]],
-        [[0,0,0],[0,0.86,0],[0.91,0.86,0]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0],[0,0.91,0]]
-    ];
-    wts5_up = [
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0.86,0]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0.86,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0.91,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0.86,0.86]],
-        [[0,0,0],[0.91,0.86,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0,0.91]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.86,0],[0,0.86,0.91]],
-        [[0,0,0],[0.91,0.86,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]],
-        [[0,0,0],[0.86,0.91,0],[0,0.86,0.86]]
-    ];
-    wts6_down = [
-        [[0,0,0],[0,0.91,0.86],[0,0,0]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.86,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0.86,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.91,0.86],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0.86,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0.86,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0.86,0]],
-        [[0,0,0],[0,0.86,0.86],[0,0,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0.86,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.86,0.91]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0.86]],
-        [[0,0,0],[0,0.86,0.91],[0,0,0.86]],
-        [[0,0,0],[0,0.86,0.86],[0,0.91,0.86]]
-    ];
-    wts7_left = [
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.86,0],[0,0.86,0],[0,0,0.91]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.86,0],[0,0,0],[0,0,0.91]],
-        [[0,0.91,0],[0,0,0],[0,0,0]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0]],
-        [[0,0.91,0],[0,0,0],[0,0,0]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.86,0],[0,0.86,0],[0,0,0.91]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0,0],[0,0.86,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.86,0],[0,0.86,0],[0,0,0.91]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0]],
-        [[0,0.86,0],[0,0.91,0],[0,0,0]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]],
-        [[0,0.91,0],[0,0.86,0],[0,0,0.86]]
-    ];
     //return matrix;
 }
 
@@ -445,7 +226,6 @@ function create2DMatrix(rows,columns) {
 }
 
 function mouseMoving(event) { // I'd recommend you read the code starting from here
-    updateSynapsesWeights(); // have ML algorithm set neuron synapse weights
     // start detecting
     var gesture = detectGesture(event);
     showGesture(gesture);
@@ -565,45 +345,15 @@ function getVelocityDirection(event) {
     return directionMatrix;
 }
 
-function updateSynapsesWeights() {
-    // numOfWts = number of weights, already defined at top
-    // wts = matrix of weights, already defined at top
-    var x = zNN;
-    var y = yNN;
-    var z = xNN;
-    var sensitivity = 0.1;
-    for (i = 0; i < x; i++) {
-        for (j = 0; j < y; j++) {
-            for(k = 0; k < z; k++) {
-                wts[i][j][k] += neuralNet[i][j][k] * sensitivity;
-                wts[i][j][k] = round( sigmoid( wts[i][j][k] ), 2 );
-            }
-        }
-    }
-}
-
 function round(x,digits) {
     return Math.round(x * Math.pow(10,digits)) / Math.pow(10,digits);
 }
 
-function sigmoid(x) { // to keep number range within 0 to 1
-    // 0 to 1
-    //return 1 / (1 + Math.exp(-x*10+5));
-    // -1 to 1
-    return (1 / (1 + Math.exp(-x*3)) -0.5)*2; // "-x*3" instead of "-x*6" so wts can be decimal values (not so quick to get to 1)
-    // "-0.5)*2" because want input=0 to give output=0
-    // "-x*6" because want to compress plot to have input ranging from 0 to 1 (and not 0 to 6)
-}
-
 function detectGesture(event) {
     var gesture = "";
-    var confidence = 0;
-    var confidence2 = 0;
-    var confidence3 = 0;
-    var confidence4 = 0;
-    var confidence5 = 0;
-    var confidence6 = 0;
-    var confidence7 = 0;
+    var confidence_clockwise = 0;
+    var confidence_updown = 0;
+    var confidence_leftright = 0;
     var x = zNN;
     var y = yNN;
     var z = xNN;
@@ -613,104 +363,52 @@ function detectGesture(event) {
     for (i = 0; i < x; i++) {
         for (j = 0; j < y; j++) {
             for(k = 0; k < z; k++) {
-                weight = wts[i][j][k];
-                weight2 = wts2_updown[i][j][k];
-                weight3 = wts3_leftright[i][j][k];
-                weight4 = wts4_right[i][j][k];
-                weight5 = wts5_up[i][j][k];
-                weight6 = wts6_down[i][j][k];
-                weight7 = wts7_left[i][j][k];
+                weight_clockwise = wts_clockwise[i][j][k];
+                weight_updown = wts_updown[i][j][k];
+                weight_leftright = wts_leftright[i][j][k];
                 input = Math.abs(testInputMatrix[i][j][k]);
-                confidence += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence2 += weight2 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence3 += weight3 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence4 += weight4 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence5 += weight5 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence6 += weight6 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
-                confidence7 += weight7 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence_clockwise += weight_clockwise * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence_updown += weight_updown * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence_leftright += weight_leftright * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
             }
         }
     }
     // get final, rounded percent output value
-    confidence = round(confidence,2); // round to 2 decimal places
-    confidence = confidence*100; // get percentage
-    confidence2 = round(confidence2,2); // round to 2 decimal places
-    confidence2 = confidence2*100; // get percentage
-    confidence3 = round(confidence3,2); // round to 2 decimal places
-    confidence3 = confidence3*100; // get percentage
-    confidence4 = round(confidence4,2); // round to 2 decimal places
-    confidence4 = confidence4*100; // get percentage
-    confidence5 = round(confidence5,2); // round to 2 decimal places
-    confidence5 = confidence5*100; // get percentage
-    confidence6 = round(confidence6,2); // round to 2 decimal places
-    confidence6 = confidence6*100; // get percentage
-    confidence7 = round(confidence7,2); // round to 2 decimal places
-    confidence7 = confidence7*100; // get percentage
+    confidence_clockwise = round(confidence_clockwise,2); // round to 2 decimal places
+    confidence_clockwise = confidence_clockwise*100; // get percentage
+    confidence_updown = round(confidence_updown,2); // round to 2 decimal places
+    confidence_updown = confidence_updown*100; // get percentage
+    confidence_leftright = round(confidence_leftright,2); // round to 2 decimal places
+    confidence_leftright = confidence_leftright*100; // get percentage
     // debug output
-    meter.value = confidence/100;
-    meter2.value = confidence2/100;
-    meter3.value = confidence3/100;
-    meter4.value = confidence4/100;
-    meter5.value = confidence5/100;
-    meter6.value = confidence6/100;
-    meter7.value = confidence7/100;
+    meter_clockwise.value = confidence_clockwise/100;
+    meter_updown.value = confidence_updown/100;
+    meter_leftright.value = confidence_leftright/100;
     // set gesture and signal colour
     gesture = "?";
-    if (confidence > confidenceThreshold) {
+    if (confidence_clockwise > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES";
-        signal.style.backgroundColor = "yellow";
-        signal.style.opacity = 1;
+        signal_clockwise.style.backgroundColor = "yellow";
+        signal_clockwise.style.opacity = 1;
     } else {
-        signal.style.backgroundColor = "blue";
-        signal.style.opacity = 0.5;
+        signal_clockwise.style.backgroundColor = "blue";
+        signal_clockwise.style.opacity = 0.5;
     }
-    if (confidence2 > confidenceThreshold) {
+    if (confidence_updown > confidenceThreshold) {
         gesture = "UP/DOWN";
-        signal2.style.backgroundColor = "yellow";
-        signal2.style.opacity = 1;
+        signal_updown.style.backgroundColor = "yellow";
+        signal_updown.style.opacity = 1;
     } else {
-        signal2.style.backgroundColor = "blue";
-        signal2.style.opacity = 0.5;
+        signal_updown.style.backgroundColor = "blue";
+        signal_updown.style.opacity = 0.5;
     }
-    if (confidence3 > confidenceThreshold) {
+    if (confidence_leftright > confidenceThreshold) {
         gesture = "LEFT/RIGHT";
-        signal3.style.backgroundColor = "yellow";
-        signal3.style.opacity = 1;
+        signal_leftright.style.backgroundColor = "yellow";
+        signal_leftright.style.opacity = 1;
     } else {
-        signal3.style.backgroundColor = "blue";
-        signal3.style.opacity = 0.5;
-    }
-    if (confidence4 > confidenceThreshold) {
-        gesture = "RIGHT";
-        signal4.style.backgroundColor = "yellow";
-        signal4.style.opacity = 1;
-    } else {
-        signal4.style.backgroundColor = "blue";
-        signal4.style.opacity = 0.5;
-    }
-    if (confidence5 > confidenceThreshold) {
-        gesture = "UP";
-        signal5.style.backgroundColor = "yellow";
-        signal5.style.opacity = 1;
-    } else {
-        signal5.style.backgroundColor = "blue";
-        signal5.style.opacity = 0.5;
-    }
-    if (confidence6 > confidenceThreshold) {
-        gesture = "DOWN";
-        signal6.style.backgroundColor = "yellow";
-        signal6.style.opacity = 1;
-    } else {
-        signal6.style.backgroundColor = "blue";
-        signal6.style.opacity = 0.5;
-    }
-    if (confidence7 > confidenceThreshold) {
-        gesture = "LEFT";
-        signal7.style.backgroundColor = "yellow";
-        signal7.style.opacity = 1;
-    } else {
-        signal7.style.backgroundColor = "blue";
-        signal7.style.opacity = 0.5;
+        signal_leftright.style.backgroundColor = "blue";
+        signal_leftright.style.opacity = 0.5;
     }
     return gesture;
 }
