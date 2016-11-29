@@ -16,11 +16,17 @@ Instead of downloading to run the files on your computer, you can try out the we
 
 ![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
 
-Extra files under "extras" folder:
+Extra files under "[extras](https://github.com/hchiam/webApp_MachineLearning_Gesture/tree/master/extras)" folder:
 * `gestures2.html`:  the version of `gestures.html` that detects more than one gesture.
 * `gestures2.js`:  the version of `gestures.js` that detects more than one gesture.
 * `gestures.css`:  the "looks/styling" of the presentation of the web page.
 * `split.py`:  convenience python file to format wts string (1 matrix per timestamp = 9 values per row) for copying-and-pasting or for creating visualizations of the neural network weights.
+* Image files.
+
+And more under the "[game](https://github.com/hchiam/webApp_MachineLearning_Gesture/tree/master/game)" folder:
+* `game.html`.
+* `game.js`.
+* Image files.
 
 ![updown](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/updown.png)
 ![circle](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.png)
