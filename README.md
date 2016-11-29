@@ -17,7 +17,7 @@ Extra files under "extras" folder:
 
 Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
 
-Instead of running the html file locally, you can try out the web app live here: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa).
+Instead of running the html file locally on your computer, you can try out the web app live here in the browser: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa). (Just adjust the code panels to show the simulated window.)
 
 ![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
 
