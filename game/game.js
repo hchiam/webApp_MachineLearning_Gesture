@@ -341,21 +341,17 @@ function detectGesture(event) {
         gesture = "CLOCKWISE CIRCLES.";
         document.getElementById("signal").style.backgroundColor = "yellow";
         document.getElementById("signal").style.opacity = 1;
-        document.getElementById("img").style.opacity = 1;
     } else {
         document.getElementById("signal").style.backgroundColor = "blue";
         document.getElementById("signal").style.opacity = 0.5;
-        document.getElementById("img").style.opacity = 0.5;
     }
     if (confidence2 > confidenceThreshold) {
         gesture = "UP/DOWN.";
         document.getElementById("signal2").style.backgroundColor = "yellow";
         document.getElementById("signal2").style.opacity = 1;
-        document.getElementById("img2").style.opacity = 1;
     } else {
         document.getElementById("signal2").style.backgroundColor = "blue";
         document.getElementById("signal2").style.opacity = 0.5;
-        document.getElementById("img2").style.opacity = 0.5;
     }
     return gesture;
 }
