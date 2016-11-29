@@ -434,11 +434,9 @@ function playerAction(gesture) {
 function specialAction_UpDown() {
     moveUp(player, 5);
 }
-
 function specialAction_LeftRight() {
     moveDown(player, 5);
 }
-
 function specialAction_ClockWise() {
     setTimeout( waitAndUp, 0 );
     setTimeout( waitAndRight, 100 );
@@ -450,17 +448,14 @@ function moveRight(player, speed) {
     //player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
     player.style.left = parseInt(player.style.left) + speed + 'px'; // this alternate requires .left initialized
 }
-
 function moveLeft(player, speed) {
     //player.style.left = parseInt(player.getBoundingClientRect().left) - speed + "px";
     player.style.left = parseInt(player.style.left) - speed + 'px'; // this alternate requires .left initialized
 }
-
 function moveUp(player, speed) {
     // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
     player.style.top = parseInt(player.style.top) - speed + 'px';
 }
-
 function moveDown(player, speed) {
     // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
     player.style.top = parseInt(player.style.top) + speed + 'px';
