@@ -2,12 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="gestures.css">
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
     </head>
     <body onmouseover="mouseMoving(event);"> <!-- onmouseout="clearDetections();"-->
         <div class="container-fluid well pad">
             <style>
                 p {
+                    position: absolute; /*this enables position specification with player controls, etc.*/
                     font-family: Arial;
                 }
                 #signal, #signal2 {
@@ -30,6 +30,7 @@
             <p id="signal2"><img id="img2" src="updown.png" style="width:50px;"></img></p>
             <meter id="meter2" value="0"></meter>
             <p id="gesture"></p>
+            <p id="player">player</p>
         </div>
         <script src="game.js"></script>
     </body>

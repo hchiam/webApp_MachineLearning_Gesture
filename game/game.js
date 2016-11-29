@@ -18,12 +18,16 @@ var wts = loadPretrainedWts();
 var wts2;
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
+var x = 0;
+var y = 0;
+
 // set "access points" to HTML GUI elements:
 var meter = document.getElementById("meter");
 var meter2 = document.getElementById("meter2");
 var signal = document.getElementById("signal");
 var signal2 = document.getElementById("signal2");
 var gesture = document.getElementById("gesture");
+var player = document.getElementById("player");
 
 function loadPretrainedWts() {
     var matrix = [
@@ -168,6 +172,7 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
     // start detecting
     var gesture = detectGesture(event);
     showGesture(gesture);
+    playerAction(gesture);
 }
 
 function getDirectionVector(event) {
@@ -345,7 +350,7 @@ function detectGesture(event) {
     // set gesture and signal colour
     gesture = "?";
     if (confidence > confidenceThreshold) {
-        gesture = "CLOCKWISE CIRCLES.";
+        gesture = "CLOCKWISE CIRCLES";
         signal.style.backgroundColor = "yellow";
         signal.style.opacity = 1;
     } else {
@@ -353,7 +358,7 @@ function detectGesture(event) {
         signal.style.opacity = 0.5;
     }
     if (confidence2 > confidenceThreshold) {
-        gesture = "UP/DOWN.";
+        gesture = "UP/DOWN";
         signal2.style.backgroundColor = "yellow";
         signal2.style.opacity = 1;
     } else {
@@ -368,5 +373,32 @@ function trackGesture(event) {
 }
 
 function showGesture(gesture) {
-    document.getElementById("gesture").innerHTML = "Gesture:  " + gesture;
+    document.getElementById("gesture").innerHTML = "Gesture:  " + gesture + ".";
+}
+
+function playerAction(gesture) {
+    if (gesture === "UP/DOWN") {
+        player.innerHTML += "a";
+        moveLeft(player, 1);
+    }
+}
+
+function moveRight(player, speed) {
+    x += speed;
+    player.style.left = parseInt(player.getBoundingClientRect().left) + x + "px";
+}
+
+function moveLeft(player, speed) {
+    x -= speed;
+    player.style.left = parseInt(player.getBoundingClientRect().left) + x + "px";
+}
+
+function moveUp(player, speed) {
+    y -= speed;
+    player.style.top = parseInt(player.getBoundingClientRect().top) + y + "px";
+}
+
+function moveDown(player, speed) {
+    y += speed;
+    player.style.top = parseInt(player.getBoundingClientRect().top) + y + "px";
 }
