@@ -431,8 +431,8 @@ function showGesture(gesture) {
 function detectBasicMotions(event) {
     var pos = getPositionVector(event); // returns [x,y]
     var [px,py] = pos;
-    player.style.left = px + 'px';
-    player.style.top = py + 'px';
+    player.style.left = px - player.offsetWidth/40 + 'px';
+    player.style.top = py - player.offsetHeight*2 + 'px';
 }
 
 function playerAction(gesture) {
