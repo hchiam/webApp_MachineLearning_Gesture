@@ -25,6 +25,7 @@ var signal = document.getElementById("signal");
 var signal2 = document.getElementById("signal2");
 var gesture = document.getElementById("gesture");
 var player = document.getElementById("player");
+player.style.top = '0px'; // initialize so that top can be changed
 
 function loadPretrainedWts() {
     var matrix = [
@@ -376,6 +377,7 @@ function showGesture(gesture) {
 function playerAction(gesture) {
     if (gesture === "UP/DOWN") {
         moveRight(player, 1);
+        moveDown(player, 1);
     }
 }
 
@@ -388,9 +390,11 @@ function moveLeft(player, speed) {
 }
 
 function moveUp(player, speed) {
-    player.style.top = parseInt(player.getBoundingClientRect().top) - speed + "px";
+    // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
+    player.style.top = parseInt(player.style.top) - speed + 'px';
 }
 
 function moveDown(player, speed) {
-    player.style.top = parseInt(player.getBoundingClientRect().top) + speed + "px";
+    // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
+    player.style.top = parseInt(player.style.top) + speed + 'px';
 }
