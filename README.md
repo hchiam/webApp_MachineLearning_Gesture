@@ -9,17 +9,21 @@ Main files:
 * `gestures.js`:  the "brains" of the web page. Tries to detect a mouse gesture when the mouse runs over the "pad".
 * `gestures.css`:  the "looks/styling" of the presentation of the web page.
 
+Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
+
+Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa). 
+(Just adjust the code panels to show the simulated window.)
+
+![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
+
 Extra files under "extras" folder:
 * `gestures2.html`:  the version of `gestures.html` that detects more than one gesture.
 * `gestures2.js`:  the version of `gestures.js` that detects more than one gesture.
 * `gestures.css`:  the "looks/styling" of the presentation of the web page.
 * `split.py`:  convenience python file to format wts string (1 matrix per timestamp = 9 values per row) for copying-and-pasting or for creating visualizations of the neural network weights.
 
-Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
-
-Instead of running the html file locally on your computer, you can try out the web app live here in the browser: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa). (Just adjust the code panels to show the simulated window.)
-
-![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
+![updown](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/updown.png)
+![circle](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.png)
 
 # Example Potential Use:
 
