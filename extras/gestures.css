@@ -1,0 +1,15 @@
+.pad, body {
+  background-color: grey;
+}
+
+p, label {
+  color: white;
+}
+
+a {
+  color: lightblue;
+}
+
+#pad {
+  background-color: lightgreen;
+}
