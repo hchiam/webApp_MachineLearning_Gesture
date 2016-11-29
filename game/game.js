@@ -422,14 +422,10 @@ function showGesture(gesture) {
 }
 
 function playerAction(gesture) {
-    if (gesture === "UP") {
+    if (gesture === "UP/DOWN") {
         moveUp(player, 5);
-    } else if (gesture === "DOWN") {
+    } else if (gesture === "LEFT/RIGHT") {
         moveDown(player, 5);
-    } else if (gesture === "LEFT") {
-        moveLeft(player, 5);
-    } else if (gesture === "RIGHT") {
-        moveRight(player, 5);
     } else if (gesture === "CLOCKWISE CIRCLES") {
         setTimeout( waitAndUp, 0 );
         setTimeout( waitAndRight, 100 );
