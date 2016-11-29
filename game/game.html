@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="gestures.css">
+    </head>
+    <body onmouseover="mouseMoving(event);"> <!-- onmouseout="clearDetections();"-->
+        <div class="container-fluid well pad">
+            <style>
+                #pad, #pad2 {
+                    width: 110px;
+                    height: 105px;
+                    border-radius: 20px;
+                    background-color: blue;
+                    text-align: center; /*to center the image*/
+                    opacity: 0.5;
+                    filter: alpha(opacity=50); /* For IE8 and earlier */
+                }
+                #img, #img2 {
+                    width: 100px;
+                    height: 100px;
+                    opacity: 0.5;
+                    filter: alpha(opacity=50); /* For IE8 and earlier */
+                }
+            </style>
+            <p id="pad"><img id="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
+            <meter id="meter" value="0"></meter>
+            <br/><br/>
+            <p id="pad2"><img id="img2" src="updown.png" style="width:50px;"></img></p>
+            <meter id="meter2" value="0"></meter>
+            <p id="gesture"></p>
+        </div>
+        <script src="game.js"></script>
+    </body>
+</html>
