@@ -335,26 +335,26 @@ function detectGesture(event) {
     // debug output
     document.getElementById("meter").value = confidence/100;
     document.getElementById("meter2").value = confidence2/100;
-    // set gesture and pad colour
+    // set gesture and signal colour
     gesture = "?";
     if (confidence > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES.";
-        document.getElementById("pad").style.backgroundColor = "yellow";
-        document.getElementById("pad").style.opacity = 1;
+        document.getElementById("signal").style.backgroundColor = "yellow";
+        document.getElementById("signal").style.opacity = 1;
         document.getElementById("img").style.opacity = 1;
     } else {
-        document.getElementById("pad").style.backgroundColor = "blue";
-        document.getElementById("pad").style.opacity = 0.5;
+        document.getElementById("signal").style.backgroundColor = "blue";
+        document.getElementById("signal").style.opacity = 0.5;
         document.getElementById("img").style.opacity = 0.5;
     }
     if (confidence2 > confidenceThreshold) {
         gesture = "UP/DOWN.";
-        document.getElementById("pad2").style.backgroundColor = "yellow";
-        document.getElementById("pad2").style.opacity = 1;
+        document.getElementById("signal2").style.backgroundColor = "yellow";
+        document.getElementById("signal2").style.opacity = 1;
         document.getElementById("img2").style.opacity = 1;
     } else {
-        document.getElementById("pad2").style.backgroundColor = "blue";
-        document.getElementById("pad2").style.opacity = 0.5;
+        document.getElementById("signal2").style.backgroundColor = "blue";
+        document.getElementById("signal2").style.opacity = 0.5;
         document.getElementById("img2").style.opacity = 0.5;
     }
     return gesture;
