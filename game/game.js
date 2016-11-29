@@ -423,28 +423,27 @@ function showGesture(gesture) {
 
 function playerAction(gesture) {
     if (gesture === "UP/DOWN") {
-        moveUp(player, 5);
+        specialAction_UpDown();
     } else if (gesture === "LEFT/RIGHT") {
-        moveDown(player, 5);
+        specialAction_LeftRight();
     } else if (gesture === "CLOCKWISE CIRCLES") {
-        setTimeout( waitAndUp, 0 );
-        setTimeout( waitAndRight, 100 );
-        setTimeout( waitAndDown, 200 );
-        setTimeout( waitAndLeft, 300 );
+        specialAction_ClockWise();
     }
 }
 
-function waitAndUp() {
-    moveUp(player, 10);
+function specialAction_UpDown() {
+    moveUp(player, 5);
 }
-function waitAndRight() {
-    moveRight(player, 10);
+
+function specialAction_LeftRight() {
+    moveDown(player, 5);
 }
-function waitAndDown() {
-    moveDown(player, 10);
-}
-function waitAndLeft() {
-    moveLeft(player, 10);
+
+function specialAction_ClockWise() {
+    setTimeout( waitAndUp, 0 );
+    setTimeout( waitAndRight, 100 );
+    setTimeout( waitAndDown, 200 );
+    setTimeout( waitAndLeft, 300 );
 }
 
 function moveRight(player, speed) {
@@ -465,4 +464,17 @@ function moveUp(player, speed) {
 function moveDown(player, speed) {
     // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
     player.style.top = parseInt(player.style.top) + speed + 'px';
+}
+
+function waitAndUp() {
+    moveUp(player, 10);
+}
+function waitAndRight() {
+    moveRight(player, 10);
+}
+function waitAndDown() {
+    moveDown(player, 10);
+}
+function waitAndLeft() {
+    moveLeft(player, 10);
 }
