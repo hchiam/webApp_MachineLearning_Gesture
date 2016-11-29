@@ -1,6 +1,6 @@
 # Machine Learning Web App:
 
-Web app that uses machine learning to learn or detect mouse/cursor gestures.
+Web app that uses machine learning to learn or detect mouse/cursor/touchpad gestures.
 
 ![neurons flashing](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif "neurons flashing")
 
