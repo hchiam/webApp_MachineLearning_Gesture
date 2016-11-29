@@ -16,7 +16,7 @@ Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_dela
 
 Instead of running the html file locally, you can try out the web app live here: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa).
 
-![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture when the mouse runs over the 'pad'")
+![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
 
 # Example Potential Use:
 
@@ -45,7 +45,7 @@ Making two quick clockwise circles with the mouse.  The following synapse weight
 
 ## Parameters that worked for "two quick clockwise circles with the mouse":
 
-For gestures.js, with "confidence > 90, movement dx and dy both > 5 then 0 detection "; commit 8eddc91cbcdf7d5be357abafe91f12a1efb866a9
+For gestures.js, with "confidence > 90, movement dx and dy both > 5 then 0 detection":
 
 ```
 var snapshots = 50;
@@ -74,7 +74,7 @@ wts =
 
 ## Parameter CHANGES that make it "ONE quick clockwise circle with the mouse":
 
-For gestures.js, commit 56c3546fb8a3388a58a2effc6b01c17874404b38
+For gestures.js:
 
 ```
 var confidenceThreshold = 80;
