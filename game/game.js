@@ -18,6 +18,13 @@ var wts = loadPretrainedWts();
 var wts2;
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
+// set "access points" to HTML GUI elements:
+var meter = document.getElementById("meter");
+var meter2 = document.getElementById("meter2");
+var signal = document.getElementById("signal");
+var signal2 = document.getElementById("signal2");
+var gesture = document.getElementById("gesture");
+
 function loadPretrainedWts() {
     var matrix = [
         [[0.86,0.86,0],[0.86,0.91,0.86],[0,0.86,0]],
@@ -333,25 +340,25 @@ function detectGesture(event) {
     confidence2 = round(confidence2,2); // round to 2 decimal places
     confidence2 = confidence2*100; // get percentage
     // debug output
-    document.getElementById("meter").value = confidence/100;
-    document.getElementById("meter2").value = confidence2/100;
+    meter.value = confidence/100;
+    meter2.value = confidence2/100;
     // set gesture and signal colour
     gesture = "?";
     if (confidence > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES.";
-        document.getElementById("signal").style.backgroundColor = "yellow";
-        document.getElementById("signal").style.opacity = 1;
+        signal.style.backgroundColor = "yellow";
+        signal.style.opacity = 1;
     } else {
-        document.getElementById("signal").style.backgroundColor = "blue";
-        document.getElementById("signal").style.opacity = 0.5;
+        signal.style.backgroundColor = "blue";
+        signal.style.opacity = 0.5;
     }
     if (confidence2 > confidenceThreshold) {
         gesture = "UP/DOWN.";
-        document.getElementById("signal2").style.backgroundColor = "yellow";
-        document.getElementById("signal2").style.opacity = 1;
+        signal2.style.backgroundColor = "yellow";
+        signal2.style.opacity = 1;
     } else {
-        document.getElementById("signal2").style.backgroundColor = "blue";
-        document.getElementById("signal2").style.opacity = 0.5;
+        signal2.style.backgroundColor = "blue";
+        signal2.style.opacity = 0.5;
     }
     return gesture;
 }
