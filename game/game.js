@@ -18,6 +18,9 @@ var wts = loadPretrainedWts();
 var wts2;
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
+var w = window.innerWidth;
+var h = window.innerHeight;
+
 // set "access points" to HTML GUI elements:
 var meter = document.getElementById("meter");
 var meter2 = document.getElementById("meter2");
@@ -25,7 +28,8 @@ var signal = document.getElementById("signal");
 var signal2 = document.getElementById("signal2");
 var gesture = document.getElementById("gesture");
 var player = document.getElementById("player");
-player.style.top = '0px'; // initialize so that top can be changed
+player.style.top = h/2 + "px"; // initialize so that top can be changed
+player.style.left = w/2 + "px";
 
 function loadPretrainedWts() {
     var matrix = [
@@ -382,11 +386,13 @@ function playerAction(gesture) {
 }
 
 function moveRight(player, speed) {
-    player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
+    //player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
+    player.style.left = parseInt(player.style.left) + speed + 'px'; // this alternate requires .left initialized
 }
 
 function moveLeft(player, speed) {
-    player.style.left = parseInt(player.getBoundingClientRect().left) - speed + "px";
+    //player.style.left = parseInt(player.getBoundingClientRect().left) - speed + "px";
+    player.style.left = parseInt(player.style.left) - speed + 'px'; // this alternate requires .left initialized
 }
 
 function moveUp(player, speed) {
