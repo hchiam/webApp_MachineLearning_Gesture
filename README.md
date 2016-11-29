@@ -12,6 +12,7 @@ Main files:
 Extra files under "extras" folder:
 * `gestures2.html`:  the version of `gestures.html` that detects more than one gesture.
 * `gestures2.js`:  the version of `gestures.js` that detects more than one gesture.
+* `gestures.css`:  the "looks/styling" of the presentation of the web page.
 * `split.py`:  convenience python file to format wts string (1 matrix per timestamp = 9 values per row) for copying-and-pasting or for creating visualizations of the neural network weights.
 
 Uses a simple time delay neural network [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
