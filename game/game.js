@@ -227,9 +227,16 @@ function create2DMatrix(rows,columns) {
 
 function mouseMoving(event) { // I'd recommend you read the code starting from here
     // start detecting
+    detectBasicMotions(event);
     var gesture = detectGesture(event);
     showGesture(gesture);
     playerAction(gesture);
+}
+
+function getPositionVector(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    return [x,y];
 }
 
 function getDirectionVector(event) {
@@ -421,6 +428,13 @@ function showGesture(gesture) {
     gesture.innerHTML = "Gesture:  " + gesture + ".";
 }
 
+function detectBasicMotions(event) {
+    var pos = getPositionVector(event); // returns [x,y]
+    var [px,py] = pos;
+    player.style.left = px + 'px';
+    player.style.top = py + 'px';
+}
+
 function playerAction(gesture) {
     if (gesture === "UP/DOWN") {
         specialAction_UpDown();
@@ -433,15 +447,18 @@ function playerAction(gesture) {
 
 function specialAction_UpDown() {
     moveUp(player, 5);
+    //player.style.color = "red";
 }
 function specialAction_LeftRight() {
     moveDown(player, 5);
+    //player.style.color = "blue";
 }
 function specialAction_ClockWise() {
     setTimeout( waitAndUp, 0 );
     setTimeout( waitAndRight, 100 );
     setTimeout( waitAndDown, 200 );
     setTimeout( waitAndLeft, 300 );
+    //player.style.color = "yellow";
 }
 
 function moveRight(player, speed) {
