@@ -2,7 +2,7 @@
 
 Web app that uses machine learning to learn or detect mouse/cursor gestures.
 
-![neurons flashing](https://github.com/hchiam/machineLearning/blob/master/extras/circle.gif "neurons flashing")
+![neurons flashing](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif "neurons flashing")
 
 Main files:
 * `gestures.html`:  the "structure" of the presentation of the web page.
