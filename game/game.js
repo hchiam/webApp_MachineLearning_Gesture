@@ -13,9 +13,11 @@ var neuralNet = create3DMatrix(snapshots,rows,columns);
 var xNN = columns;
 var yNN = rows;
 var zNN = snapshots;
-var wts = loadPretrainedWts();
+var wts;
 //var wts = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 var wts2;
+var wts3;
+loadPretrainedWts();
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
 var w = window.innerWidth;
@@ -32,7 +34,8 @@ player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
 
 function loadPretrainedWts() {
-    var matrix = [
+    //var matrix = [
+    wts = [
         [[0.86,0.86,0],[0.86,0.91,0.86],[0,0.86,0]],
         [[0.91,0.86,0],[0,0.86,0],[0.86,0,0.86]],
         [[0.91,0.86,0],[0,0.86,0],[0.86,0.86,0.86]],
@@ -136,7 +139,59 @@ function loadPretrainedWts() {
         [[0,0,0],[0.91,0.86,0.86],[0,0,0]],
         [[0,0,0],[0.91,0,0.86],[0,0,0.86]]
     ];
-    return matrix;
+    wts3=[
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0.86]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0.86]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.86,0.91]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0.86]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0.86]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0,0],[0,0.86,0.91]],
+        [[0,0.86,0],[0,0,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0.86]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.86,0.91]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.86,0],[0,0.91,0]],
+        [[0,0.86,0],[0,0.91,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0.86]],
+        [[0,0.91,0],[0,0.86,0],[0,0.86,0]],
+    ]
+    //return matrix;
 }
 
 function create3DMatrix(snapshots,rows,columns) {
@@ -324,6 +379,7 @@ function detectGesture(event) {
     var gesture = "";
     var confidence = 0;
     var confidence2 = 0;
+    var confidence3 = 0;
     var x = zNN;
     var y = yNN;
     var z = xNN;
@@ -335,9 +391,11 @@ function detectGesture(event) {
             for(k = 0; k < z; k++) {
                 weight = wts[i][j][k];
                 weight2 = wts2[i][j][k];
+                weight3 = wts3[i][j][k];
                 input = Math.abs(testInputMatrix[i][j][k]);
                 confidence += weight * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
                 confidence2 += weight2 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
+                confidence3 += weight3 * input /snapshots; // "/snapshots" to divide by the number of matching snapshots
             }
         }
     }
@@ -346,9 +404,12 @@ function detectGesture(event) {
     confidence = confidence*100; // get percentage
     confidence2 = round(confidence2,2); // round to 2 decimal places
     confidence2 = confidence2*100; // get percentage
+    confidence3 = round(confidence3,2); // round to 2 decimal places
+    confidence3 = confidence3*100; // get percentage
     // debug output
     meter.value = confidence/100;
     meter2.value = confidence2/100;
+    meter3.value = confidence3/100;
     // set gesture and signal colour
     gesture = "?";
     if (confidence > confidenceThreshold) {
@@ -367,6 +428,14 @@ function detectGesture(event) {
         signal2.style.backgroundColor = "blue";
         signal2.style.opacity = 0.5;
     }
+    if (confidence3 > confidenceThreshold) {
+        gesture = "LEFT/RIGHT";
+        signal3.style.backgroundColor = "yellow";
+        signal3.style.opacity = 1;
+    } else {
+        signal3.style.backgroundColor = "blue";
+        signal3.style.opacity = 0.5;
+    }
     return gesture;
 }
 
@@ -380,9 +449,28 @@ function showGesture(gesture) {
 
 function playerAction(gesture) {
     if (gesture === "UP/DOWN") {
-        moveRight(player, 1);
-        moveDown(player, 1);
+        moveUp(player, 5);
+    } else if (gesture === "LEFT/RIGHT") {
+        moveRight(player, 5);
+    } else if (gesture === "CLOCKWISE CIRCLES") {
+        setTimeout( waitAndUp, 0 );
+        setTimeout( waitAndRight, 100 );
+        setTimeout( waitAndDown, 200 );
+        setTimeout( waitAndLeft, 300 );
     }
+}
+
+function waitAndUp() {
+    moveUp(player, 10);
+}
+function waitAndRight() {
+    moveRight(player, 10);
+}
+function waitAndDown() {
+    moveDown(player, 10);
+}
+function waitAndLeft() {
+    moveLeft(player, 10);
 }
 
 function moveRight(player, speed) {

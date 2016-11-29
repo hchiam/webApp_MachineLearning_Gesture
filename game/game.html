@@ -23,6 +23,13 @@
                     width: 100px;
                     height: 100px;
                 }
+                .rotate90 {
+                    -webkit-transform: rotate(90deg);
+                    -moz-transform: rotate(90deg);
+                    -o-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                }
             </style>
             <p id="gesture"></p>
             <br/><br/>
@@ -32,7 +39,7 @@
             <p id="signal2" class="signal"><img id="img2" class="img" src="updown.png" style="width:50px;"></img></p>
             <meter id="meter2" value="0"></meter>
             <br/><br/><br/><br/><br/><br/><br/>
-            <p id="signal3" class="signal"><img id="img3" class="img" src="updown.png" style="width:50px;"></img></p>
+            <p id="signal3" class="signal"><img id="img3" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
             <meter id="meter3" value="0"></meter>
             <p id="player">player</p>
         </div>
