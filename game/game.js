@@ -18,9 +18,6 @@ var wts = loadPretrainedWts();
 var wts2;
 var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee same size
 
-var x = 0;
-var y = 0;
-
 // set "access points" to HTML GUI elements:
 var meter = document.getElementById("meter");
 var meter2 = document.getElementById("meter2");
@@ -378,27 +375,22 @@ function showGesture(gesture) {
 
 function playerAction(gesture) {
     if (gesture === "UP/DOWN") {
-        player.innerHTML += "a";
-        moveLeft(player, 1);
+        moveRight(player, 1);
     }
 }
 
 function moveRight(player, speed) {
-    x += speed;
-    player.style.left = parseInt(player.getBoundingClientRect().left) + x + "px";
+    player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
 }
 
 function moveLeft(player, speed) {
-    x -= speed;
-    player.style.left = parseInt(player.getBoundingClientRect().left) + x + "px";
+    player.style.left = parseInt(player.getBoundingClientRect().left) - speed + "px";
 }
 
 function moveUp(player, speed) {
-    y -= speed;
-    player.style.top = parseInt(player.getBoundingClientRect().top) + y + "px";
+    player.style.top = parseInt(player.getBoundingClientRect().top) - speed + "px";
 }
 
 function moveDown(player, speed) {
-    y += speed;
-    player.style.top = parseInt(player.getBoundingClientRect().top) + y + "px";
+    player.style.top = parseInt(player.getBoundingClientRect().top) + speed + "px";
 }
