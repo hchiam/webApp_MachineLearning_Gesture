@@ -23,13 +23,15 @@ Extra files under "[extras](https://github.com/hchiam/webApp_MachineLearning_Ges
 * `split.py`:  convenience python file to format wts string (1 matrix per timestamp = 9 values per row) for copying-and-pasting or for creating visualizations of the neural network weights.
 * Image files.
 
+![updown](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/updown.png)
+![circle](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.png)
+
 And more under the "[game](https://github.com/hchiam/webApp_MachineLearning_Gesture/tree/master/game)" folder:
 * `game.html`.
 * `game.js`.
-* Image files.
+* Image files specifically used in the game.
 
-![updown](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/updown.png)
-![circle](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.png)
+![game](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/game.png)
 
 # Example Potential Use:
 
