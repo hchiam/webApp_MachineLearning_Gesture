@@ -575,11 +575,13 @@ function bounceBall(objectsList) {
     }
     // check each object in objectsList:
     for (i=0; i<objectsList.length; i++) {
-        var object = objectsList[i];
-        var overlap = detectOverlap("ball", object);
-        var leftP = parseInt(document.getElementById(object).style.left);
-        var topP = parseInt(document.getElementById(object).style.top);
+        var objectName = objectsList[i];
+        var object = document.getElementById(objectName);
+        var overlap = detectOverlap("ball", objectName);
+        var leftP = parseInt(object.style.left);
+        var topP = parseInt(object.style.top);
         if (overlap) {
+            // bounce:
             if (left > leftP && velocityBall[0] > 0) {
                 velocityBall[0] *= -1;
             } else if (left < leftP && velocityBall[0] < 0) {
