@@ -12,8 +12,11 @@
             #player {
                 position: absolute; /*override relative position*/
             }
-            #landingpad {
+            #landingpad, #landingpad2 {
                 position: absolute; /*override relative position*/
+            }
+            #ball {
+                position: absolute;
             }
             .signal {
                 width: 60px;
@@ -50,6 +53,10 @@
         <meter id="meter_clockwise" value="0"></meter>
         <br/>
         <p id="landingpad">O</p>
+        <p id="landingpad2">--------------------------------------</p>
+        <p id="ball"></p>
+        
         <script src="game.js"></script>
+        
     </body>
 </html>

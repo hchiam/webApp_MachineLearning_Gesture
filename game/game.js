@@ -35,6 +35,8 @@ player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
 landingpad.style.top = h/2 + "px"; // initialize so that top can be changed
 landingpad.style.left = w/2 + "px";
+landingpad2.style.top = h/5 + "px"; // initialize so that top can be changed
+landingpad2.style.left = w/5 + "px";
 
 function detectOverlap(elem1, elem2) {
     // set up overlap detection:
@@ -254,6 +256,11 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
         document.getElementById("landingpad").innerHTML = "OVERLAP DETECTED";
     } else {
         document.getElementById("landingpad").innerHTML = "O";
+    }
+    if (detectOverlap("player","landingpad2")) {
+        document.getElementById("landingpad2").innerHTML = "======================================";
+    } else {
+        document.getElementById("landingpad2").innerHTML = "--------------------------------------";
     }
 }
 
@@ -516,4 +523,73 @@ function waitAndDown() {
 }
 function waitAndLeft() {
     moveLeft(player, 10);
+}
+
+
+/* CODE TO ENABLE BALL GAME */
+
+
+var w = window.innerWidth;
+var h = window.innerHeight;
+var myVar = setInterval(myTimer, 100);
+var t = 0;
+var ball = document.getElementById("ball");
+var player = document.getElementById("player");
+var velocityBall = [-20,-20];
+var positionBall = [w,h];
+var stopBall = false;
+var objectsList = ["player", "landingpad", "landingpad2"]; // TODO update this later
+
+function myTimer() {
+    t += 1;
+    moveBall(t);
+    if (stopBall) {
+        clearInterval(myVar);
+    }
+}
+
+function moveBall(t) {
+    // display time:
+    ball.innerHTML = t;
+    // ball direction:
+    positionBall[0] += velocityBall[0];
+    positionBall[1] += velocityBall[1];
+    bounceBall(objectsList);
+    ball.style.left = positionBall[0] + 'px';
+    ball.style.top = positionBall[1] + 'px';
+}
+
+function bounceBall(objectsList) {
+    var left = parseInt(ball.style.left);
+    var top = parseInt(ball.style.top);
+    // check walls
+    if (left > w && velocityBall[0] > 0) {
+        velocityBall[0] *= -1;
+    } else if (left < 0 && velocityBall[0] < 0) {
+        velocityBall[0] *= -1;
+    }
+    if (top > h && velocityBall[1] > 0) {
+        velocityBall[1] *= -1;
+    } else if (top < 0 && velocityBall[1] < 0) {
+        velocityBall[1] *= -1;
+    }
+    // check each object in objectsList:
+    for (i=0; i<objectsList.length; i++) {
+        var object = objectsList[i];
+        var overlap = detectOverlap("ball", object);
+        var leftP = parseInt(document.getElementById(object).style.left);
+        var topP = parseInt(document.getElementById(object).style.top);
+        if (overlap) {
+            if (left > leftP && velocityBall[0] > 0) {
+                velocityBall[0] *= -1;
+            } else if (left < leftP && velocityBall[0] < 0) {
+                velocityBall[0] *= -1;
+            }
+            if (top > topP && velocityBall[1] > 0) {
+                velocityBall[1] *= -1;
+            } else if (top < topP && velocityBall[1] < 0) {
+                velocityBall[1] *= -1;
+            }
+        }
+    }
 }
