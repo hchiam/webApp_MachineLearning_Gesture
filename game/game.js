@@ -592,6 +592,10 @@ function bounceBall(objectsList) {
             } else if (top < topP && velocityBall[1] < 0) {
                 velocityBall[1] *= -1;
             }
+            // extra stuff depending on the object:
+            if (objectName === "landingpad2") {
+                object.innerHTML = "---";
+            }
         }
     }
 }
