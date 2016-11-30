@@ -448,10 +448,12 @@ function playerAction(gesture) {
 function specialAction_UpDown() {
     //moveUp(player, 5);
     player.style.color = "red";
+    player.innerHTML = "UP/DOWN ACTIVATED";
 }
 function specialAction_LeftRight() {
     //moveDown(player, 5);
     player.style.color = "blue";
+    player.innerHTML = "LEFT/RIGHT ACTIVATED";
 }
 function specialAction_ClockWise() {
     //setTimeout( waitAndUp, 0 );
@@ -459,6 +461,7 @@ function specialAction_ClockWise() {
     //setTimeout( waitAndDown, 200 );
     //setTimeout( waitAndLeft, 300 );
     player.style.color = "yellow";
+    player.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
 }
 
 function moveRight(player, speed) {
