@@ -31,6 +31,9 @@ And more under the "[game](https://github.com/hchiam/webApp_MachineLearning_Gest
 * `game.js`.
 * Image files specifically used in the game.
 
+Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/pen/QGOyaE](https://codepen.io/hchiam/pen/QGOyaE). 
+(Just adjust the code panels to show the simulated window.)
+
 ![game](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/game.png)
 
 # Example Potential Use:
