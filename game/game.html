@@ -9,6 +9,10 @@
                 position: relative; /*this enables position specification with player controls, etc.*/
                 font-family: Arial;
             }
+            #landingpad {
+                position: absolute; /*override relative position*/
+                display: inline-block;
+            }
             .signal {
                 width: 60px;
                 height: 60px;
@@ -42,7 +46,8 @@
         
         <p id="signal_clockwise" class="signal"><img id="img_clockwise" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
         <meter id="meter_clockwise" value="0"></meter>
-        
+        <br/>
+        <p id="landingpad">O</p>
         <script src="game.js"></script>
     </body>
 </html>

@@ -33,6 +33,25 @@ var signal_leftright = document.getElementById("signal_leftright");
 var player = document.getElementById("player");
 player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
+landingpad.style.top = h/2 + "px"; // initialize so that top can be changed
+landingpad.style.left = w/2 + "px";
+
+function detectOverlap(elem1, elem2) {
+    // set up overlap detection:
+    var offsetOne = document.getElementById(elem1);
+    var offsetTwo = document.getElementById(elem2);
+    var widthOne = document.getElementById(elem1).clientWidth;
+    var widthTwo = document.getElementById(elem2).clientWidth;
+    var heightOne = document.getElementById(elem1).clientHeight;
+    var heightTwo = document.getElementById(elem2).clientHeight;
+    var overlap = false;
+    var [x1,x2,y1,y2] = [offsetOne.offsetLeft,offsetTwo.offsetLeft,offsetOne.offsetTop,offsetTwo.offsetTop];
+    var [w1,w2,h1,h2] = [widthOne,widthTwo,heightOne,heightTwo];
+    if (x1 <= x2 + w2 && x1 + w1 >= x2 && y1 < y2 + h2 && y1 + h1 > y2) {
+        overlap = true;
+    }
+    return overlap;
+}
 
 function loadPretrainedWts() {
     //var matrix = [
@@ -231,6 +250,11 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
     var gesture = detectGesture(event);
     showGesture(gesture);
     playerAction(gesture);
+    if (detectOverlap("player","landingpad")) {
+        document.getElementById("landingpad").innerHTML = "OVERLAP DETECTED";
+    } else {
+        document.getElementById("landingpad").innerHTML = "O";
+    }
 }
 
 function getPositionVector(event) {
