@@ -11,7 +11,7 @@ Main files:
 
 Uses a super simple version of a TDNN (time delay neural network) [https://en.wikipedia.org/wiki/Time_delay_neural_network](https://en.wikipedia.org/wiki/Time_delay_neural_network).
 
-Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/pen/rrwQRa](https://codepen.io/hchiam/pen/rrwQRa). 
+Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/full/rrwQRa](https://codepen.io/hchiam/full/rrwQRa). 
 (Just adjust the code panels to show the simulated window.)
 
 ![webApp](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/LearnGesture.png "a web app that tries to detect a gesture made by the mouse anywhere on the page")
@@ -31,7 +31,7 @@ And more under the "[game](https://github.com/hchiam/webApp_MachineLearning_Gest
 * `game.js`.
 * Image files specifically used in the game.
 
-Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/pen/QGOyaE](https://codepen.io/hchiam/pen/QGOyaE). 
+Instead of downloading to run the files on your computer, you can try out the web app in the browser: [https://codepen.io/hchiam/full/QGOyaE](https://codepen.io/hchiam/full/QGOyaE). 
 (Just adjust the code panels to show the simulated window.)
 
 ![game](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/game.png)
