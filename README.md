@@ -2,6 +2,8 @@
 
 Web app that uses machine learning to learn or detect mouse/cursor/touchpad gestures.
 
+Just want to try it out quickly in your browser? Go here: [https://codepen.io/hchiam/full/QGOyaE](https://codepen.io/hchiam/full/QGOyaE)
+
 ![neurons flashing](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif "neurons flashing")
 
 Main files:
