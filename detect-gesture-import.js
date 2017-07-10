@@ -5,7 +5,7 @@
 // <p id='meter_leftright'></p>
 // <p id='gesture_signal'><
 
-// // Make sure to implement these in the js file:
+// // Make sure to implement/override these in the js file:
 // specialAction_UpDown();
 // specialAction_LeftRight();
 // specialAction_ClockWise();
@@ -467,14 +467,17 @@ function playerAction(gesture) {
 }
 
 function specialAction_UpDown() {
+    // override this to customize response to gesture detection
     gesture_signal.style.color = "red";
     gesture_signal.innerHTML = "UP/DOWN ACTIVATED";
 }
 function specialAction_LeftRight() {
+    // override this to customize response to gesture detection
     gesture_signal.style.color = "blue";
     gesture_signal.innerHTML = "LEFT/RIGHT ACTIVATED";
 }
 function specialAction_ClockWise() {
+    // override this to customize response to gesture detection
     gesture_signal.style.color = "yellow";
     gesture_signal.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
 }
