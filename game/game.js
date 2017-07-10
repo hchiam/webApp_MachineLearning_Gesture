@@ -1,17 +1,15 @@
+// // Makes sure to have these in the html file:
+// <p id='player'></p>
+// <p id='meter_clockwise'></p>
+// <p id='meter_updown'></p>
+// <p id='meter_leftright'></p>
+// <p id='signal_clockwise'></p>
+// <p id='signal_updown'></p>
+// <p id='signal_leftright'></p>
+
 // I'd recommend you read the code starting from "function mouseMoving(event)" to get the main idea
 
 document.addEventListener("mousemove", mouseMoving); // detect mouse position anywhere on page
-
-// use React to create elements
-var coreElements = ['player', 'meter_clockwise', 'meter_updown', 'meter_leftright', 'signal_clockwise', 'signal_updown', 'signal_leftright'];
-var gestureDetect = coreElements.map(function (elem) {
-  return React.createElement('p', { id: elem });
-});
-ReactDOM.render(React.createElement(
-  'div',
-  { id: 'gesture_detect' },
-  gestureDetect
-), document.getElementById('root'));
 
 // TODO: setting samplePeriod doesn't seem to affect setInterval()
 var samplePeriod = 1000*2; // 1 per 2 seconds if samplePeriod = 1000*2 ; 10 per second if samplePeriod = 1000/10
