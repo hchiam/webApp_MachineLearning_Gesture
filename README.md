@@ -4,7 +4,7 @@ Web app that uses machine learning to learn or detect mouse/cursor/touchpad gest
 
 Just want to try it out quickly in your browser? Go here: [https://codepen.io/hchiam/full/QGOyaE](https://codepen.io/hchiam/full/QGOyaE)
 
-Just want to import functionality? Include https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-import.js but also check the comments in game.js for implementation notes.
+Just want to import functionality? Include https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-import.js but also check the comments in game.js for implementation notes. Basic steps [here](#importing-functionality).
 
 ![neurons flashing](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif "neurons flashing")
 
@@ -130,3 +130,42 @@ wts =
 Here's that same info, animated:
 
 ![circle.gif](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif)
+
+# Importing Functionality:
+
+Import:
+https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-import.js
+
+In HTML:
+```
+<div id='gestureDetection'>
+  <p id='player'></p>
+  <p id='meter_clockwise'></p>
+  <p id='meter_updown'></p>
+  <p id='meter_leftright'></p>
+  <p id='gesture_signal' style='font-size:xx-large;'></p>
+</div>
+```
+
+In JavaScript:
+```
+// // override:
+// specialAction_UpDown();
+// specialAction_LeftRight();
+// specialAction_ClockWise();
+
+function specialAction_UpDown() {
+  gesture_signal.style.color = "red";
+  gesture_signal.innerHTML = "&#8597;";
+}
+
+function specialAction_LeftRight() {
+  gesture_signal.style.color = "blue";
+  gesture_signal.innerHTML = "&#8596;";
+}
+
+function specialAction_ClockWise() {
+  gesture_signal.style.color = "yellow";
+  gesture_signal.innerHTML = "&#8635;";
+}
+```
