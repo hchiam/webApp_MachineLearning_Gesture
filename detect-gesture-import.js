@@ -3,9 +3,7 @@
 // <p id='meter_clockwise'></p>
 // <p id='meter_updown'></p>
 // <p id='meter_leftright'></p>
-// <p id='signal_clockwise'></p>
-// <p id='signal_updown'></p>
-// <p id='signal_leftright'></p>
+// <p id='gesture_signal'></p>
 
 // // Make sure to implement these in the js file:
 // specialAction_UpDown();
@@ -41,9 +39,7 @@ var h = window.innerHeight;
 var meter_clockwise = document.getElementById("meter_clockwise");
 var meter_updown = document.getElementById("meter_updown");
 var meter_leftright = document.getElementById("meter_leftright");
-var signal_clockwise = document.getElementById("signal_clockwise");
-var signal_updown = document.getElementById("signal_updown");
-var signal_leftright = document.getElementById("signal_leftright");
+var gesture_signal = document.getElementById("gesture_signal");
 var player = document.getElementById("player");
 player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
@@ -441,27 +437,12 @@ function detectGesture(event) {
     gesture = "?";
     if (confidence_clockwise > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES";
-        signal_clockwise.style.backgroundColor = "yellow";
-        signal_clockwise.style.opacity = 1;
-    } else {
-        signal_clockwise.style.backgroundColor = "blue";
-        signal_clockwise.style.opacity = 0.5;
     }
     if (confidence_updown > confidenceThreshold) {
         gesture = "UP/DOWN";
-        signal_updown.style.backgroundColor = "yellow";
-        signal_updown.style.opacity = 1;
-    } else {
-        signal_updown.style.backgroundColor = "blue";
-        signal_updown.style.opacity = 0.5;
     }
     if (confidence_leftright > confidenceThreshold) {
         gesture = "LEFT/RIGHT";
-        signal_leftright.style.backgroundColor = "yellow";
-        signal_leftright.style.opacity = 1;
-    } else {
-        signal_leftright.style.backgroundColor = "blue";
-        signal_leftright.style.opacity = 0.5;
     }
     return gesture;
 }
