@@ -1,6 +1,6 @@
 // // Make sure to have these in the html file:
 // <p id='player'></p>
-// <p id='gesture_signal'><
+// <p id='gesture_signal'></p>
 
 // // Make sure to implement/override these in the js file:
 // specialAction_UpDown();
