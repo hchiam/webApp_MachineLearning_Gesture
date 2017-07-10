@@ -1,8 +1,5 @@
 // // Make sure to have these in the html file:
 // <p id='player'></p>
-// <p id='meter_clockwise'></p>
-// <p id='meter_updown'></p>
-// <p id='meter_leftright'></p>
 // <p id='gesture_signal'><
 
 // // Make sure to implement/override these in the js file:
@@ -35,10 +32,7 @@ var testInputMatrix = create3DMatrix(snapshots,rows,columns); // so guarantee sa
 var w = window.innerWidth;
 var h = window.innerHeight;
 
-// set "access points" to HTML GUI elements:  CW = Clockwise ; UD = Up/Down ; LR = Left/Right
-var meter_clockwise = document.getElementById("meter_clockwise");
-var meter_updown = document.getElementById("meter_updown");
-var meter_leftright = document.getElementById("meter_leftright");
+// set "access points" to HTML GUI elements:
 var gesture_signal = document.getElementById("gesture_signal");
 var player = document.getElementById("player");
 player.style.top = h/2 + "px"; // initialize so that top can be changed
@@ -429,10 +423,6 @@ function detectGesture(event) {
     confidence_updown = confidence_updown*100; // get percentage
     confidence_leftright = round(confidence_leftright,2); // round to 2 decimal places
     confidence_leftright = confidence_leftright*100; // get percentage
-    // debug output
-    meter_clockwise.value = confidence_clockwise/100;
-    meter_updown.value = confidence_updown/100;
-    meter_leftright.value = confidence_leftright/100;
     // set gesture and signal colour
     gesture = "?";
     if (confidence_clockwise > confidenceThreshold) gesture = "CLOCKWISE CIRCLES";
