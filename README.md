@@ -4,7 +4,7 @@ Web app that uses machine learning to learn or detect mouse/cursor/touchpad gest
 
 Just want to try it out quickly in your browser? Go here: [https://codepen.io/hchiam/full/QGOyaE](https://codepen.io/hchiam/full/QGOyaE)
 
-Just want to import functionality? Include https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/game/game.js but also check the comments in game.js for implementation notes.
+Just want to import functionality? Include https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-import.js but also check the comments in game.js for implementation notes.
 
 ![neurons flashing](https://github.com/hchiam/webApp_MachineLearning_Gesture/blob/master/extras/circle.gif "neurons flashing")
 
