@@ -1,12 +1,3 @@
-// // Makes sure to have these in the html file:
-// <p id='player'></p>
-// <p id='meter_clockwise'></p>
-// <p id='meter_updown'></p>
-// <p id='meter_leftright'></p>
-// <p id='signal_clockwise'></p>
-// <p id='signal_updown'></p>
-// <p id='signal_leftright'></p>
-
 // I'd recommend you read the code starting from "function mouseMoving(event)" to get the main idea
 
 document.addEventListener("mousemove", mouseMoving); // detect mouse position anywhere on page
