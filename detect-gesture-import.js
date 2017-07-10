@@ -37,10 +37,6 @@ var gesture_signal = document.getElementById("gesture_signal");
 var player = document.getElementById("player");
 player.style.top = h/2 + "px"; // initialize so that top can be changed
 player.style.left = w/2 + "px";
-landingpad.style.top = h/2 + "px"; // initialize so that top can be changed
-landingpad.style.left = w/2 + "px";
-landingpad2.style.top = h/5 + "px"; // initialize so that top can be changed
-landingpad2.style.left = w/5 + "px";
 
 function detectOverlap(elem1, elem2) {
     // set up overlap detection:
@@ -257,16 +253,6 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
     showGesture(gesture);
     // act on the detected gesture
     playerAction(gesture);
-    if (detectOverlap("player","landingpad")) {
-        document.getElementById("landingpad").innerHTML = "OVERLAP DETECTED";
-    } else {
-        document.getElementById("landingpad").innerHTML = "O";
-    }
-    if (detectOverlap("player","landingpad2")) {
-        document.getElementById("landingpad2").innerHTML = "======================================";
-    } else {
-        document.getElementById("landingpad2").innerHTML = "--------------------------------------";
-    }
 }
 
 function getPositionVector(event) {
@@ -515,7 +501,7 @@ var player = document.getElementById("player");
 var velocityBall = [-20,-20];
 var positionBall = [w,h];
 var stopBall = false;
-var objectsList = ["player", "landingpad", "landingpad2"]; // TODO update this later
+var objectsList = ["player"]; //, "landingpad", "bouncingboard"]; // TODO update this later
 
 function myTimer() {
     t += 1;
@@ -569,10 +555,10 @@ function bounceBall(objectsList) {
             } else if (top < topP && velocityBall[1] < 0) {
                 velocityBall[1] *= -1;
             }
-            // extra stuff depending on the object:
-            if (objectName === "landingpad2") {
-                object.innerHTML = "---";
-            }
+            // // extra stuff depending on the object:
+            // if (objectName === "landingpad2") {
+            //     object.innerHTML = "---";
+            // }
         }
     }
 }
