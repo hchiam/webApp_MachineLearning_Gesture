@@ -457,33 +457,3 @@ function specialAction_ClockWise() {
     gesture_signal.style.color = "yellow";
     gesture_signal.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
 }
-
-function moveRight(player, speed) {
-    //player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
-    player.style.left = parseInt(player.style.left) + speed + 'px'; // this alternate requires .left initialized
-}
-function moveLeft(player, speed) {
-    //player.style.left = parseInt(player.getBoundingClientRect().left) - speed + "px";
-    player.style.left = parseInt(player.style.left) - speed + 'px'; // this alternate requires .left initialized
-}
-function moveUp(player, speed) {
-    // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
-    player.style.top = parseInt(player.style.top) - speed + 'px';
-}
-function moveDown(player, speed) {
-    // need this intialized beforehand:  player.style.top = '0px'; // initialize so that top can be changed
-    player.style.top = parseInt(player.style.top) + speed + 'px';
-}
-
-function waitAndUp() {
-    moveUp(player, 10);
-}
-function waitAndRight() {
-    moveRight(player, 10);
-}
-function waitAndDown() {
-    moveDown(player, 10);
-}
-function waitAndLeft() {
-    moveLeft(player, 10);
-}
