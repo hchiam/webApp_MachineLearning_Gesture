@@ -1,4 +1,4 @@
-// // Makes sure to have these in the html file:
+// // Make sure to have these in the html file:
 // <p id='player'></p>
 // <p id='meter_clockwise'></p>
 // <p id='meter_updown'></p>
@@ -6,6 +6,11 @@
 // <p id='signal_clockwise'></p>
 // <p id='signal_updown'></p>
 // <p id='signal_leftright'></p>
+
+// // Make sure to implement these in the js file:
+// specialAction_UpDown();
+// specialAction_LeftRight();
+// specialAction_ClockWise();
 
 // I'd recommend you read the code starting from "function mouseMoving(event)" to get the main idea
 
@@ -486,24 +491,24 @@ function playerAction(gesture) {
     }
 }
 
-function specialAction_UpDown() {
-    //moveUp(player, 5);
-    player.style.color = "red";
-    player.innerHTML = "UP/DOWN ACTIVATED";
-}
-function specialAction_LeftRight() {
-    //moveDown(player, 5);
-    player.style.color = "blue";
-    player.innerHTML = "LEFT/RIGHT ACTIVATED";
-}
-function specialAction_ClockWise() {
-    //setTimeout( waitAndUp, 0 );
-    //setTimeout( waitAndRight, 100 );
-    //setTimeout( waitAndDown, 200 );
-    //setTimeout( waitAndLeft, 300 );
-    player.style.color = "yellow";
-    player.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
-}
+// function specialAction_UpDown() {
+//     //moveUp(player, 5);
+//     player.style.color = "red";
+//     player.innerHTML = "UP/DOWN ACTIVATED";
+// }
+// function specialAction_LeftRight() {
+//     //moveDown(player, 5);
+//     player.style.color = "blue";
+//     player.innerHTML = "LEFT/RIGHT ACTIVATED";
+// }
+// function specialAction_ClockWise() {
+//     //setTimeout( waitAndUp, 0 );
+//     //setTimeout( waitAndRight, 100 );
+//     //setTimeout( waitAndDown, 200 );
+//     //setTimeout( waitAndLeft, 300 );
+//     player.style.color = "yellow";
+//     player.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
+// }
 
 function moveRight(player, speed) {
     //player.style.left = parseInt(player.getBoundingClientRect().left) + speed + "px";
