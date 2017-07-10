@@ -164,3 +164,7 @@ function specialAction_ClockWise() {
   gesture_signal.innerHTML = "&#8635;";
 }
 ```
+
+You can see an example used in https://github.com/hchiam/minimal-clock:
+
+<img src="https://github.com/hchiam/minimal-clock/blob/master/minimal-clock.png" width="500"/>
