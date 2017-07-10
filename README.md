@@ -138,13 +138,8 @@ https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-i
 
 In HTML:
 ```html
-<div id='gestureDetection'>
-  <p id='player'></p>
-  <p id='meter_clockwise'></p>
-  <p id='meter_updown'></p>
-  <p id='meter_leftright'></p>
-  <p id='gesture_signal' style='font-size:xx-large;'></p>
-</div>
+<p id='player'></p>
+<p id='gesture_signal'></p>
 ```
 
 In JavaScript:
