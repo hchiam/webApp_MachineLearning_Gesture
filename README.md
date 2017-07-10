@@ -42,7 +42,7 @@ Instead of downloading to run the files on your computer, you can try out the we
 
 # Example Potential Use:
 
-* For future mobile web apps/games using mouse path gestures.
+* For future mobile web apps/games using mouse path gestures. (https://github.com/hchiam/minimal-clock)
 * For interaction capabilities in web apps.
 
 # Main Data Flow Steps:
