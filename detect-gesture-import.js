@@ -435,30 +435,9 @@ function detectGesture(event) {
     meter_leftright.value = confidence_leftright/100;
     // set gesture and signal colour
     gesture = "?";
-    if (confidence_clockwise > confidenceThreshold) {
-        gesture = "CLOCKWISE CIRCLES";
-        gesture_signal.style.backgroundColor = "yellow";
-        gesture_signal.style.opacity = 1;
-    } else {
-        gesture_signal.style.backgroundColor = "blue";
-        gesture_signal.style.opacity = 0.5;
-    }
-    if (confidence_updown > confidenceThreshold) {
-        gesture = "UP/DOWN";
-        gesture_signal.style.backgroundColor = "yellow";
-        gesture_signal.style.opacity = 1;
-    } else {
-        gesture_signal.style.backgroundColor = "blue";
-        gesture_signal.style.opacity = 0.5;
-    }
-    if (confidence_leftright > confidenceThreshold) {
-        gesture = "LEFT/RIGHT";
-        gesture_signal.style.backgroundColor = "yellow";
-        gesture_signal.style.opacity = 1;
-    } else {
-        gesture_signal.style.backgroundColor = "blue";
-        gesture_signal.style.opacity = 0.5;
-    }
+    if (confidence_clockwise > confidenceThreshold) gesture = "CLOCKWISE CIRCLES";
+    if (confidence_updown > confidenceThreshold) gesture = "UP/DOWN";
+    if (confidence_leftright > confidenceThreshold) gesture = "LEFT/RIGHT";
     return gesture;
 }
 
@@ -488,22 +467,16 @@ function playerAction(gesture) {
 }
 
 function specialAction_UpDown() {
-    //moveUp(player, 5);
-    player.style.color = "red";
-    player.innerHTML = "UP/DOWN ACTIVATED";
+    gesture_signal.style.color = "red";
+    gesture_signal.innerHTML = "UP/DOWN ACTIVATED";
 }
 function specialAction_LeftRight() {
-    //moveDown(player, 5);
-    player.style.color = "blue";
-    player.innerHTML = "LEFT/RIGHT ACTIVATED";
+    gesture_signal.style.color = "blue";
+    gesture_signal.innerHTML = "LEFT/RIGHT ACTIVATED";
 }
 function specialAction_ClockWise() {
-    //setTimeout( waitAndUp, 0 );
-    //setTimeout( waitAndRight, 100 );
-    //setTimeout( waitAndDown, 200 );
-    //setTimeout( waitAndLeft, 300 );
-    player.style.color = "yellow";
-    player.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
+    gesture_signal.style.color = "yellow";
+    gesture_signal.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
 }
 
 function moveRight(player, speed) {
