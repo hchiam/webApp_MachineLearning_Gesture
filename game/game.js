@@ -260,6 +260,7 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
     detectBasicMotions(event);
     var gesture = detectGesture(event);
     showGesture(gesture);
+    // act on the detected gesture
     playerAction(gesture);
     if (detectOverlap("player","landingpad")) {
         document.getElementById("landingpad").innerHTML = "OVERLAP DETECTED";
