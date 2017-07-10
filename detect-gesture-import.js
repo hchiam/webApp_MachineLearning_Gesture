@@ -250,7 +250,6 @@ function mouseMoving(event) { // I'd recommend you read the code starting from h
     // start detecting
     detectBasicMotions(event);
     var gesture = detectGesture(event);
-    showGesture(gesture);
     // act on the detected gesture
     playerAction(gesture);
 }
@@ -419,10 +418,6 @@ function detectGesture(event) {
 
 function trackGesture(event) {
     sampleTimer = setInterval(updateNeuralNetwork(event, testInputMatrix), samplePeriod); // 1 per 2 seconds if samplePeriod = 1000*2 ; 10 per second if samplePeriod = 1000/10
-}
-
-function showGesture(gesture) {
-    gesture.innerHTML = "Gesture:  " + gesture + ".";
 }
 
 function detectBasicMotions(event) {
