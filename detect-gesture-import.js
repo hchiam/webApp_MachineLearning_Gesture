@@ -3,7 +3,7 @@
 // <p id='meter_clockwise'></p>
 // <p id='meter_updown'></p>
 // <p id='meter_leftright'></p>
-// <p id='gesture_signal'></p>
+// <p id='gesture_signal'><
 
 // // Make sure to implement these in the js file:
 // specialAction_UpDown();
@@ -437,12 +437,27 @@ function detectGesture(event) {
     gesture = "?";
     if (confidence_clockwise > confidenceThreshold) {
         gesture = "CLOCKWISE CIRCLES";
+        gesture_signal.style.backgroundColor = "yellow";
+        gesture_signal.style.opacity = 1;
+    } else {
+        gesture_signal.style.backgroundColor = "blue";
+        gesture_signal.style.opacity = 0.5;
     }
     if (confidence_updown > confidenceThreshold) {
         gesture = "UP/DOWN";
+        gesture_signal.style.backgroundColor = "yellow";
+        gesture_signal.style.opacity = 1;
+    } else {
+        gesture_signal.style.backgroundColor = "blue";
+        gesture_signal.style.opacity = 0.5;
     }
     if (confidence_leftright > confidenceThreshold) {
         gesture = "LEFT/RIGHT";
+        gesture_signal.style.backgroundColor = "yellow";
+        gesture_signal.style.opacity = 1;
+    } else {
+        gesture_signal.style.backgroundColor = "blue";
+        gesture_signal.style.opacity = 0.5;
     }
     return gesture;
 }
