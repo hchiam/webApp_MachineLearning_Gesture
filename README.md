@@ -137,7 +137,7 @@ Import:
 https://rawgit.com/hchiam/webApp_MachineLearning_Gesture/master/detect-gesture-import.js
 
 In HTML:
-```
+```html
 <div id='gestureDetection'>
   <p id='player'></p>
   <p id='meter_clockwise'></p>
@@ -148,7 +148,7 @@ In HTML:
 ```
 
 In JavaScript:
-```
+```javascript
 // // override:
 // specialAction_UpDown();
 // specialAction_LeftRight();
