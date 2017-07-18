@@ -3,7 +3,11 @@
     <head>
         <style>
             body {
-                background-color: grey;
+                background: turquoise; /* For browsers that do not support gradients */
+                background: -webkit-linear-gradient(left, lightgreen, turquoise); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(right, lightgreen, turquoise); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(right, lightgreen, turquoise); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to right, lightgreen, turquoise); /* Standard syntax (must be last) */
             }
             p {
                 position: relative; /*this enables position specification with player controls, etc.*/
@@ -42,21 +46,21 @@
     </head>
     <body onmouseover="mouseMoving(event);"> <!-- onmouseout="clearDetections();"-->
         <p id="player">player</p>
-        
+
         <p id="signal_updown" class="signal"><img id="img_updown" class="img" src="updown.png" style="width:50px;"></img></p>
         <meter id="meter_updown" value="0"></meter>
-        
+
         <p id="signal_leftright" class="signal"><img id="img_leftright" class="img rotate90" src="updown.png" style="width:50px;"></img></p>
         <meter id="meter_leftright" value="0"></meter>
-        
+
         <p id="signal_clockwise" class="signal"><img id="img_clockwise" class="img" src="circle.png"></img> <!--onmousemove="mouseMovingOverPad(event);" onmouseout="clearDetections();"--></p>
         <meter id="meter_clockwise" value="0"></meter>
         <br/>
         <p id="landingpad">O</p>
         <p id="landingpad2">--------------------------------------</p>
         <p id="ball"></p>
-        
+
         <script src="game.js"></script>
-        
+
     </body>
 </html>
