@@ -1,5 +1,7 @@
 # Machine Learning Web App:
 
+[![HitCount](http://hits.dwyl.io/hchiam/webApp_MachineLearning_Gesture.svg)](http://hits.dwyl.io/hchiam/webApp_MachineLearning_Gesture)
+
 Web app that uses machine learning to learn or detect mouse/cursor/touchpad gestures.
 
 Just want to try it out quickly in your browser? Go here: [https://codepen.io/hchiam/full/QGOyaE](https://codepen.io/hchiam/full/QGOyaE)
