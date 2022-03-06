@@ -15,6 +15,24 @@
             }
             #player {
                 position: absolute; /*override relative position*/
+                --outline-color: white;
+                font-weight: bold;
+                letter-spacing: 2px;
+                padding: 0 0.2em;
+                width: min-content;
+                background: #33333333;
+                border-radius: 0.2em;
+                z-index: 1;
+                text-shadow:
+                    -0.5px -0.5px var(--outline-color),
+                    0 -0.5px var(--outline-color),
+                    0.5px -0.5px var(--outline-color),
+                    -0.5px 0 var(--outline-color),
+                    0.5px 0 var(--outline-color),
+                    -0.5px 0.5px var(--outline-color),
+                    0 0.5px var(--outline-color),
+                    0.5px 0.5px var(--outline-color)
+                    ;
             }
             #landingpad, #landingpad2 {
                 position: absolute; /*override relative position*/
