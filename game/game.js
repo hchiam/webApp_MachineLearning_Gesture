@@ -494,11 +494,13 @@ function playerAction(gesture) {
 function specialAction_UpDown() {
     //moveUp(player, 5);
     player.style.color = "red";
+    player.style.setProperty('--outline-color', 'white');
     player.innerHTML = "UP/DOWN ACTIVATED";
 }
 function specialAction_LeftRight() {
     //moveDown(player, 5);
     player.style.color = "blue";
+    player.style.setProperty('--outline-color', 'white');
     player.innerHTML = "LEFT/RIGHT ACTIVATED";
 }
 function specialAction_ClockWise() {
@@ -507,6 +509,7 @@ function specialAction_ClockWise() {
     //setTimeout( waitAndDown, 200 );
     //setTimeout( waitAndLeft, 300 );
     player.style.color = "yellow";
+    player.style.setProperty('--outline-color', 'black');
     player.innerHTML = "CLOCKWISE CIRCLE ACTIVATED";
 }
 
